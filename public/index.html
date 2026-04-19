@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for premium typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">🎓</div>
+                <h2>UMS Admin</h2>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-btn active" data-target="colleges">🏛️ Colleges</button>
+                <button class="nav-btn" data-target="departments">🏢 Departments</button>
+                <button class="nav-btn" data-target="courses">📚 Courses</button>
+                <button class="nav-btn" data-target="faculties">👨‍🏫 Faculty</button>
+                <button class="nav-btn" data-target="students">👨‍🎓 Students</button>
+                <button class="nav-btn" data-target="reports">📊 Progress Reports</button>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="topbar">
+                <h1>Dashboard overview</h1>
+                <div class="user-profile">
+                    <span class="user-greeting">Welcome, Admin</span>
+                    <div class="avatar">A</div>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 id="table-title">Colleges Information</h2>
+                        <div class="header-actions">
+                            <button class="action-btn" onclick="fetchData()">🔄 Refresh</button>
+                            <button class="action-btn add-btn" onclick="openAddModal()">➕ Add New</button>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <!-- Data will be populated here by JavaScript -->
+                        <table id="data-table">
+                            <thead id="table-head">
+                                <!-- Headers injected via JS -->
+                            </thead>
+                            <tbody id="table-body">
+                                <tr>
+                                    <td colspan="5" class="loading-state">Select an entity to load data...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- CRUD Modal -->
+    <div id="crud-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Add Record</h2>
+                <button class="close-btn" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="crud-form">
+                    <!-- Inputs injected via JS -->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+                <button type="button" class="btn-submit" onclick="submitForm()">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script file -->
+    <script src="script.js"></script>
+</body>
+</html>
